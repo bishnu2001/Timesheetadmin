@@ -39,46 +39,66 @@ const Alluser = () => {
   };
 
   return (
-    <div className="container ml-80">
-      <h1 className="text-2xl font-bold mb-4">User List</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-        {users.map((user) => (
-          <div key={user.id} className="bg-white rounded-lg shadow-md p-6">
-            <div className="mb-4">
-              <span className="font-semibold">Username:</span> {user.username}
-            </div>
-            <div className="mb-4">
-              <span className="font-semibold">Mobile Number:</span>{" "}
-              {user.mobileNumber}
-            </div>
-            <div className="mb-4">
-              <span className="font-semibold">Email:</span> {user.email}
-            </div>
-            <div className="mb-4">
-              <span className="font-semibold">Password:</span> {user.password}
-            </div>
-            <div className="mb-4">
-              <span className="font-semibold">Role:</span> {user.role}
-            </div>
-            <div className="mb-4">
-              <span className="font-semibold">DOB:</span> {user.dob}
-            </div>
-            <div className="flex justify-between">
-              <Link
-                to={`/user`}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Edit
-              </Link>
-              <button
-                onClick={() => handleDelete(user.id)}
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+    <div className="ml-80">
+      <h1 className="text-lg font-bold mb-2">User List</h1>
+      <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table className="divide-gray-200 w-full mr-9">
+          <thead>
+            <tr>
+              <th className="px-3 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Username
+              </th>
+              <th className="px-3 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Mobile Number
+              </th>
+              <th className="px-3 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Email
+              </th>
+              <th className="px-3 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Role
+              </th>
+              <th className="px-3 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                DOB
+              </th>
+              <th className="px-3 py-2 bg-gray-50"></th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {users.map((user) => (
+              <tr key={user.id}>
+                <td className="px-3 py-2 whitespace-no-wrap text-xl">
+                  {user.username}
+                </td>
+                <td className="px-3 py-2 whitespace-no-wrap text-xl">
+                  {user.mobileNumber}
+                </td>
+                <td className="px-3 py-2 whitespace-no-wrap text-xl">
+                  {user.email}
+                </td>
+                <td className="px-3 py-2 whitespace-no-wrap text-xl">
+                  {user.role}
+                </td>
+                <td className="px-3 py-2 whitespace-no-wrap text-x">
+                  {user.dob}
+                </td>
+                <td className="px-3 py-2 whitespace-no-wrap text-right text-xl">
+                  <Link
+                    to={`/user`}
+                    className="text-indigo-600 hover:text-indigo-900"
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(user.id)}
+                    className="text-red-600 hover:text-red-900 ml-2 cursor-pointer"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

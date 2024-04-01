@@ -13,6 +13,8 @@ import Alluser from "./components/Alluser/Alluser";
 import Vehicle from "./components/Vehicle/Vehicle";
 import Supplier from "./components/Vendor/Supplier";
 import Customer from "./components/Vendor/Customer";
+import Allvehicle from "./components/Vehicle/Allvehicle";
+import VehicleEdit from "./components/Vehicleedit/Vehicleedit";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/vehicle" element={<Vehicle />} />
         <Route path="/supplier" element={<Supplier />} />
         <Route path="/customer" element={<Customer />} />
+        <Route path="/allvehicle" element={<Allvehicle />} />
+        <Route path="/vehicleedit" element={<VehicleEdit />} />
       </Routes>
     </>
   );
