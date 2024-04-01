@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [vendorDropdown, setVendorDropdown] = useState(false);
+  const [vehicleDropdown, setVehicleDropdown] = useState(false);
 
   const toggleVendorMenu = () => {
     setVendorDropdown(!vendorDropdown);
+  };
+  const toggleVehicleMenu = () => {
+    setVehicleDropdown(!vehicleDropdown);
   };
 
   const toggleDropdown = () => {
@@ -151,15 +155,40 @@ const Sidebar = () => {
                   </div>
                 </div>
               </div>
-              <div>
-                <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700">
+              <div className="relative">
+                <span
+                  className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700"
+                  onClick={toggleVehicleMenu}
+                >
                   <Link
-                    to={`/vehicle`}
+                    to={`/home`}
                     className="flex items-center flex-grow text-[1.15rem] text-white hover:text-gray-300"
                   >
-                    Vehicle Registration
+                    Vehicle Management
                   </Link>
                 </span>
+                {vehicleDropdown && (
+                  <div className="absolute left-full top-0 mt-[.4rem] bg-gray-700 border border-gray-500 rounded-[.95rem] shadow-md w-[200px]">
+                    <div className="py-2 px-4 border-b border-gray-500">
+                      <Link
+                        to="/vehicle"
+                        className="block text-white hover:text-gray-300"
+                        onClick={toggleVehicleMenu}
+                      >
+                        Vehicle Registration
+                      </Link>
+                    </div>
+                    <div className="py-2 px-4 border-b border-gray-500">
+                      <Link
+                        to="/allvehicle"
+                        className="block text-white hover:text-gray-300"
+                        onClick={toggleVehicleMenu}
+                      >
+                        All Vehicle
+                      </Link>
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="relative">
                 <span
