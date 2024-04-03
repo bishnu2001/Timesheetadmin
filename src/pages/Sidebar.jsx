@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import Createuser from "../components/CreateUser/RegisterUser";
 import { Link } from "react-router-dom";
+import {
+  HiUser,
+  HiTruck,
+  HiUserGroup,
+  HiClipboardCheck,
+  HiCog,
+} from "react-icons/hi";
 
 const Sidebar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -92,9 +99,9 @@ const Sidebar = () => {
           </div>
 
           <div className="hidden border-b border-dashed lg:block dark:border-neutral-700/70 border-neutral-200"></div>
-          <div className="relative pl-3 my-5">
+          <div className="relative">
             {/* add overflow-y-scroll */}
-            <div className="flex flex-col w-full font-medium">
+            <div className="flex flex-col w-full font-medium mt-4">
               {/* <div>
                 <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700">
                   <Link
@@ -109,12 +116,13 @@ const Sidebar = () => {
                 <div>
                   <div className="relative">
                     <span
-                      className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700"
+                      className="select-none flex items-center px-4  py-[.4rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700"
                       onClick={toggleDropdown}
                     >
+                      <HiUser className="w-6 h-6 mr-2 text-white" />
                       <Link
                         to={`/home`}
-                        className="flex items-center flex-grow text-[1.15rem] text-white hover:text-gray-300"
+                        className="flex items-center flex-grow text-[1.15rem] text-white hover:text-gray-300 text-lg"
                       >
                         Manage User Account
                       </Link>
@@ -157,14 +165,15 @@ const Sidebar = () => {
               </div>
               <div className="relative">
                 <span
-                  className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700"
+                  className="select-none flex items-center px-4  py-[.4rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700"
                   onClick={toggleVehicleMenu}
                 >
+                  <HiTruck className="w-6 h-6 mr-2 text-white" />
                   <Link
                     to={`/home`}
                     className="flex items-center flex-grow text-[1.15rem] text-white hover:text-gray-300"
                   >
-                    Vehicle Management
+                    Vehicle Master
                   </Link>
                 </span>
                 {vehicleDropdown && (
@@ -192,34 +201,43 @@ const Sidebar = () => {
               </div>
               <div className="relative">
                 <span
-                  className="select-none flex items-center px-4 py-[.775rem] text-[1.15rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700 text-white hover:text-gray-300"
+                  className="select-none flex items-center px-4  py-[.4rem] text-[1.15rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700 text-white hover:text-gray-300"
                   onClick={toggleVendorMenu}
                 >
-                  Vendor Management
+                  <HiUserGroup className="w-6 h-6 mr-2" />
+                  <Link to={`/supplier`}>Supplier Management</Link>
                 </span>
-                {vendorDropdown && (
-                  <div className="absolute left-full top-0 mt-[.4rem] bg-gray-700 border border-gray-500 rounded-[.95rem] shadow-md w-[200px]">
-                    <div className="py-2 px-4 border-b border-gray-500">
-                      <Link
-                        to="/customer"
-                        className="block text-white hover:text-gray-300"
-                      >
-                        Customer
-                      </Link>
-                    </div>
-                    <div className="py-2 px-4 border-b border-gray-500">
-                      <Link
-                        to="/supplier"
-                        className="block text-white hover:text-gray-300"
-                      >
-                        Supplier
-                      </Link>
-                    </div>
-                  </div>
-                )}
+              </div>
+              <div className="relative">
+                <span
+                  className="select-none flex items-center px-4 py-[.4rem] text-[1.15rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700 text-white hover:text-gray-300"
+                  onClick={toggleVendorMenu}
+                >
+                  <HiUserGroup className="w-6 h-6 mr-2" />
+                  <Link to={`/customer`}>Customer Management</Link>
+                </span>
+              </div>
+              <div className="relative">
+                <span
+                  className="select-none flex items-center px-4  py-[.4rem] text-[1.15rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700 text-white hover:text-gray-300"
+                  onClick={toggleVendorMenu}
+                >
+                  <HiUserGroup className="w-6 h-6 mr-2" />
+                  <Link to={`/camera`}>Camera Master</Link>
+                </span>
+              </div>
+              <div className="relative">
+                <span
+                  className="select-none flex items-center px-4 py-[.4rem] text-[1.15rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700 text-white hover:text-gray-300"
+                  onClick={toggleVendorMenu}
+                >
+                  <HiUserGroup className="w-6 h-6 mr-2" />
+                  <Link to={`/quality`}>Quality Master</Link>
+                </span>
               </div>
               <div>
-                <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700">
+                <span className="select-none flex items-center px-4  py-[.4rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700">
+                  <HiClipboardCheck className="w-6 h-6 mr-2 text-white" />
                   <a
                     href="javascript:;"
                     className="flex items-center flex-grow text-[1.15rem]  text-white hover:text-gray-300"
@@ -229,7 +247,8 @@ const Sidebar = () => {
                 </span>
               </div>
               <div>
-                <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700">
+                <span className="select-none flex items-center px-4  py-[.4rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700">
+                  <HiClipboardCheck className="w-6 h-6 mr-2 text-white" />
                   <a
                     href="javascript:;"
                     className="flex items-center flex-grow text-[1.15rem] text-white hover:text-gray-300"

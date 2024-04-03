@@ -15,10 +15,12 @@ import Supplier from "./components/Vendor/Supplier";
 import Customer from "./components/Vendor/Customer";
 import Allvehicle from "./components/Vehicle/Allvehicle";
 import VehicleEdit from "./components/Vehicleedit/Vehicleedit";
+import Quality from "./components/Quality/Quality";
+import Camera from "./components/Camera/Camera";
 
 function App() {
   return (
-    <>
+    <div>
       <Headers />
       <Sidebar />
       <Routes>
@@ -32,8 +34,10 @@ function App() {
         <Route path="/customer" element={<Customer />} />
         <Route path="/allvehicle" element={<Allvehicle />} />
         <Route path="/vehicleedit" element={<VehicleEdit />} />
+        <Route path="/quality" element={<Quality />} />
+        <Route path="/camera" element={<Camera />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

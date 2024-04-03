@@ -4,7 +4,6 @@ import UserEdit from "../Useredit/UserEdit";
 const RegisterUser = () => {
   const [formData, setFormData] = useState({});
   const [users, setUsers] = useState([]);
-
   useEffect(() => {
     const storedFormData = localStorage.getItem("formData");
     if (storedFormData) {
@@ -134,14 +133,31 @@ const RegisterUser = () => {
             className="block text-gray-700 text-sm font-semibold mb-1"
             htmlFor="dob"
           >
-            Date of Birth
+            Organization Name
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="dob"
-            type="date"
-            value={formData.dob}
+            id="organizationname"
+            type="text"
+            value={formData.organizationname}
             onChange={handleInputChange}
+            placeholder="Enter Your Organization name"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-semibold mb-1"
+            htmlFor="dob"
+          >
+            Site Name
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="sitename"
+            type="text"
+            value={formData.sitename}
+            onChange={handleInputChange}
+            placeholder="Enter Your site name name"
           />
         </div>
         <div className="mb-4 col-span-2">

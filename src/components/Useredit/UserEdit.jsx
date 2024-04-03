@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const UserEdit = () => {
   const [formData, setFormData] = useState({});
@@ -33,7 +33,7 @@ const UserEdit = () => {
             className="block text-gray-700 text-sm font-semibold mb-1"
             htmlFor="userId"
           >
-            User ID
+            Employee ID
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
