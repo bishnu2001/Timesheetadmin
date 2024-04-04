@@ -115,6 +115,7 @@ const Sidebar = () => {
               <div>
                 <div>
                   <div className="relative">
+                    {/* toggle side bar */}
                     <span
                       className="select-none flex items-center px-4  py-[.4rem] cursor-pointer my-[.4rem] rounded-[.95rem] border border-gray-500 bg-gray-700"
                       onClick={toggleDropdown}
